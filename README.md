@@ -1,16 +1,16 @@
 # About this project
 
-Ramo: Paradigmas de programación
+**Ramo**: Paradigmas de programación
 
-Laboratorio: Nº2 Paradigma lógico
+**Laboratorio**: Nº2 Paradigma lógico
 
-Autor: Oscar Henríquez González
+**Autor**: Oscar Henríquez González
 
-Fecha: Mayo de 2023
+**Fecha**: Mayo de 2023
 
-Lenguaje: Prolog
+**Lenguaje**: Prolog
 
-Profesor: Gonzalo Martínez.
+**Profesor**: Gonzalo Martínez.
 
 
 ## Tools
