@@ -1,0 +1,1 @@
+Las pruebas se deben realizar ejecutando el archivo: main_157809385_HenriquezGonzalez.rkt en el IDE Dr. Racket
