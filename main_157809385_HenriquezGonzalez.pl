@@ -1,4 +1,4 @@
-% TDA FS
+%%%%%%%%%%%%%%%%%%%%%%% TDA FS %%%%%%%%%%%%%%%%%%%%%%%
 
 % filesystem/5: Constructor de filesystem
 % DOMINIO: Nombre (string), Drives (lista de drives), Users (lista de usuarios), Content (contenido), TimeStamp (marca de tiempo)
@@ -33,6 +33,8 @@ letterDoesntExistsInSystem(Unidad, System) :-
    filesystem(_, Drives, _, _, _, System),
     \+ exists(Unidad, Drives).
 
+
+%%%%%%%%%%%%%%%%%%%%%%% TDA USER %%%%%%%%%%%%%%%%%%%%%%%
 % getUsers/2: Obtiene los Users de un System
 % DOMINIO: System (estructura de filesystem), Users (lista de usuarios)
 % META PRINCIPAL: Retornar la lista de usuarios de un System
@@ -70,7 +72,7 @@ setAddUserInSystem(System, User, UpdatedSystem) :-
 existsUser(User, Users) :-
   member(User, Users). 
 
-% TDA Drive
+%%%%%%%%%%%%%%%%%%%%%%% TDA DRIVE %%%%%%%%%%%%%%%%%%%%%%%
 
 % drive/4: Constructor de drive
 % DOMINIO: Unidad (string), Nombre (string), Capacidad (número), Drive (lista)
@@ -85,7 +87,9 @@ drive(Unidad, Nombre, Capacidad, [Unidad, Nombre, Capacidad]).
 setAddNewDriveInDrives(NewDrive, Drives, UpdatedDrives) :-
   append(Drives, [NewDrive], UpdatedDrives).
 
-% RF1. constructor
+
+%%%%%%%%%%%%%%%%%%%%%%% RFS %%%%%%%%%%%%%%%%%%%%%%%
+% RF1. System
 
 % system/2: Constructor de sistema
 % DOMINIO: Nombre (string), Sistema (estructura de filesystem)
@@ -94,7 +98,7 @@ setAddNewDriveInDrives(NewDrive, Drives, UpdatedDrives) :-
 system(Nombre, Sistema) :-
   filesystem(Nombre, [], [], [], Sistema).
 
-% RF2. addDrive
+% RF2. systemAddDrive
 
 % systemAddDrive/5: Agrega un nuevo drive al sistema
 % DOMINIO: System (estructura de filesystem), Unidad (string), Nombre (string), Capacidad (número), UpdatedSystem (estructura de filesystem actualizada)
@@ -121,6 +125,175 @@ systemAddDrive(System, Unidad, Nombre, Capacidad, UpdatedSystem) :-
 
 systemRegister(System, User, UpdatedSystem) :-
   setAddUserInSystem(System, User, UpdatedSystem).
+
+
+% RF4. systemLogin
+
+% systemLogin/4: loguea un usuario al sistema
+% DOMINIO: System (estructura de filesystem), User (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para loguear un usuario al sistema
+% META SECUNDARIA: Ninguna
+systemLogin(System, User, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF5. systemLogout
+% systemLogout/2: Desloguea un usuario al sistema
+% DOMINIO: System (estructura de filesystem), User (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+systemLogout(System, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF6. systemSwitchDrive
+% systemSwitchDrive/3: cambia de drive al usuario
+% DOMINIO: System (estructura de filesystem), letter (char), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+systemSwitchDrive(System, Unidad, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF7. systemMkdir
+% systemMkdir/3: crea un directorio en el sistema
+% DOMINIO: System (estructura de filesystem), Name (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+   systemMkdir(System, Name, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF8. systemCd
+% systemCd/3: cambia de directorio en el sistema
+% DOMINIO: System (estructura de filesystem), Path (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+   systemCd(System, Path, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF9. systemAddFile
+% systemAddFile/3: agrega un archivo al sistema
+% DOMINIO: System (estructura de filesystem), file (file), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+   systemAddFile(System, file, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF10. systemDel
+% systemDel/3: elimina un archivo del sistema
+% DOMINIO: System (estructura de filesystem), fileName (String), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+   systemDel(System, User, Path, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF11. systemCopy
+% systemCopy/3: copia un archivo o directorio del sistema
+% DOMINIO: System (estructura de filesystem), source (file or folder) (String) x targetpath (String), UpdatedSystem (estructura de filesystem actualizada) 
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+
+systemCopy(System, Source, TargetPath, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF12. systemMove
+% systemMove/3: mueve un archivo o directorio del sistema
+% DOMINIO: System (estructura de filesystem), source (file or folder) (String) x targetpath (String), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+   systemMove(System, Source, TargetPath, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF13. systemRen
+% systemRen/3: renombra un archivo o directorio del sistema
+% DOMINIO: System (estructura de filesystem), currentname(String) x newname(String), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+   systemRen(System, CurrentName, NewName, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF14. systemDir
+% systemDir/3: muestra el contenido de un directorio del sistema
+% DOMINIO: System (estructura de filesystem), params(String list), listaDir (string)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+   systemDir(System, Params, ListaDir) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF15. systemFormat
+% systemFormat/4: formatea un disco del sistema
+% DOMINIO: System (estructura de filesystem), drive (char), label (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+systemFormat(System, Drive, Label, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF16. systemEncrypt
+% systemEncrypt/4: encripta un archivo o carpeta del sistema
+% DOMINIO: System (estructura de filesystem), password (string), foldername (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+
+
+   systemEncrypt(System, Password, FolderName, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF17. systemDecrypt
+% systemDecrypt/4: desencripta un archivo o carpeta del sistema
+% DOMINIO: System (estructura de filesystem), password (string), foldername (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+
+systemDecrypt(System, Password, FolderName, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF18. systemGrep
+% systemGrep/4: busca un texto en un archivo o carpeta del sistema
+% DOMINIO: System (estructura de filesystem), pattern (string), fileNameOrPath (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+
+   systemGrep(System, Pattern, FileNameOrPath, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF19. systemViewTrash
+% systemViewTrash/2: muestra el contenido de la papelera del sistema
+% DOMINIO: System (estructura de filesystem), lspapelera (string)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+
+   systemViewTrash(System, Lspapelera) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+% RF20. systemRestore
+% systemRestore/4: restaura un archivo o carpeta del sistema desde la papelera
+% DOMINIO: System (estructura de filesystem), fileNameOrPath (string), UpdatedSystem (estructura de filesystem actualizada)
+% META PRINCIPAL: Utiliza xxxxxx para YYYYYYYY
+% META SECUNDARIA: Ninguna
+
+
+   systemRestore(System, FileNameOrPath, UpdatedSystem) :-
+   existsUser(User, System[3]),
+   setAddUserInSystem(System, User, UpdatedSystem).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+filesystem("MySystem", [], [], [], "2022-01-01", FileSystem), drive("C", "OS", 10000000000, Drive1), drive("D", "DATA", 5000000000, Drive2), setAddNewDriveInDrives(Drive1, FileSystem[2], UpdatedDrives), setAddNewDriveInDrives(Drive2, UpdatedDrives, UpdatedFileSystemDrives), UpdatedFileSystem = [FileSystem[1], UpdatedFileSystemDrives, FileSystem[3], FileSystem[4], FileSystem[5]].
+
+
 
 
 

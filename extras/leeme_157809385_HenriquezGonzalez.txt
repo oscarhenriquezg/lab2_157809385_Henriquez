@@ -1,1 +1,2 @@
-Las pruebas se deben realizar ejecutando el archivo: main_157809385_HenriquezGonzalez.rkt en el IDE Dr. Racket
+Las pruebas se deben realizar ejecutando el archivo: main_157809385_HenriquezGonzalez.pl
+en el IDE Web SWISH version V1.7.0-118-g8ece8ac-DIRTYRunning on SWI-Prolog version 9.1.8-18-ga51163963
